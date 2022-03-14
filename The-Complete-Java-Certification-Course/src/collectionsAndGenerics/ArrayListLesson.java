@@ -3,11 +3,13 @@
 package collectionsAndGenerics;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class ArrayListLesson {
 
 	public static void main(String[] args) {
 
+		//Before java 5 - not generics
 		ArrayList words = new ArrayList();
 		words.add("Hello");
 		words.add("There");
@@ -27,10 +29,39 @@ public class ArrayListLesson {
 		 * System.out.println(item1 + item2);
 		 */
 		
-		int item3 = (int) words.get(2); 
-		int item4 = (int) words.get(3);
-		System.out.println(item3 + item4);
-
+		/*Visar hur man castar:
+		 * int item3 = (int) words.get(1); int item4 = (int) words.get(2);
+		 * System.out.println(item3 + item4);
+		 */
+		
+		//Generics ArrayList<type>
+		//ArrayList - 10 slots, then copy to 20 slot to a new array and then double
+		//Faster to receive data, slower for data manipulation
+		ArrayList<String> words2 = new ArrayList<String>();
+		words2.add("Hello");
+		words2.add("There");
+		words2.add("H");
+		
+		String item5 =  words2.get(2);
+		System.out.println(item5);
+		
+		// attaches a new "cart" to the train
+		//Faster for manipulation, slower for retrieving 
+		LinkedList<Integer> numbers = new LinkedList<Integer>();
+		numbers.add(100);
+		numbers.add(200);
+		numbers.add(45);
+		numbers.add(1000);
+		numbers.remove(2);
+		numbers.remove();
+		numbers.removeFirst(); //same as .remove()
+		
+		for(int number : numbers) {
+			System.out.println(number);
+		}
+		
+		
+		
 	}
 
 }
